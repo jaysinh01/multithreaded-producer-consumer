@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		69C5569123FE12A800EBCA71 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C5569023FE12A800EBCA71 /* main.cpp */; };
+		69C5569A23FE133800EBCA71 /* threading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C5569823FE133800EBCA71 /* threading.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,8 @@
 
 /* Begin PBXFileReference section */
 		69C5568D23FE12A800EBCA71 /* multithreaded-producer-consumer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "multithreaded-producer-consumer"; sourceTree = BUILT_PRODUCTS_DIR; };
-		69C5569023FE12A800EBCA71 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		69C5569823FE133800EBCA71 /* threading.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = threading.cpp; path = ../../../Documents/threading.cpp; sourceTree = "<group>"; };
+		69C5569923FE133800EBCA71 /* threading.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = threading.hpp; path = ../../../Documents/threading.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +58,8 @@
 		69C5568F23FE12A800EBCA71 /* multithreaded-producer-consumer */ = {
 			isa = PBXGroup;
 			children = (
-				69C5569023FE12A800EBCA71 /* main.cpp */,
+				69C5569823FE133800EBCA71 /* threading.cpp */,
+				69C5569923FE133800EBCA71 /* threading.hpp */,
 			);
 			path = "multithreaded-producer-consumer";
 			sourceTree = "<group>";
@@ -118,7 +120,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69C5569123FE12A800EBCA71 /* main.cpp in Sources */,
+				69C5569A23FE133800EBCA71 /* threading.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
