@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		69C5569A23FE133800EBCA71 /* threading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C5569823FE133800EBCA71 /* threading.cpp */; };
 		69C5569D23FEE61300EBCA71 /* input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C5569B23FEE61300EBCA71 /* input.cpp */; };
+		69C556A22400A66E00EBCA71 /* TSleep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C556A02400A66E00EBCA71 /* TSleep.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,8 @@
 		69C5569923FE133800EBCA71 /* threading.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = threading.hpp; path = ../../../Documents/threading.hpp; sourceTree = "<group>"; };
 		69C5569B23FEE61300EBCA71 /* input.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = input.cpp; path = ../../../Documents/input.cpp; sourceTree = "<group>"; };
 		69C5569C23FEE61300EBCA71 /* input.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = input.hpp; path = ../../../Documents/input.hpp; sourceTree = "<group>"; };
+		69C556A02400A66E00EBCA71 /* TSleep.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TSleep.cpp; path = ../../../Documents/TSleep.cpp; sourceTree = "<group>"; };
+		69C556A12400A66E00EBCA71 /* TSleep.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = TSleep.hpp; path = ../../../Documents/TSleep.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 				69C5569923FE133800EBCA71 /* threading.hpp */,
 				69C5569B23FEE61300EBCA71 /* input.cpp */,
 				69C5569C23FEE61300EBCA71 /* input.hpp */,
+				69C556A02400A66E00EBCA71 /* TSleep.cpp */,
+				69C556A12400A66E00EBCA71 /* TSleep.hpp */,
 			);
 			path = "multithreaded-producer-consumer";
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69C556A22400A66E00EBCA71 /* TSleep.cpp in Sources */,
 				69C5569D23FEE61300EBCA71 /* input.cpp in Sources */,
 				69C5569A23FE133800EBCA71 /* threading.cpp in Sources */,
 			);
