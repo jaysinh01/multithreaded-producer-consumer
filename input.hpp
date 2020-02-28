@@ -8,9 +8,9 @@
 #ifndef input_hpp
 #define input_hpp
 
-#include <stdio.h>
+//#include <stdio.h>
 #include "threading.hpp"
-#include "TandS.cpp"
+
 #include <sys/times.h> // for timing functions
 #include <thread>
 #include <iostream>

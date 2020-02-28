@@ -6,6 +6,7 @@
 //
 
 #include "input.hpp"
+#include "TandS.cpp"
 
 std::queue<std::pair<char, int>> input;
 bool exitFlag = false;

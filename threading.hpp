@@ -8,6 +8,6 @@
 #ifndef threading_hpp
 #define threading_hpp
 
-#include <stdio.h>
+//#include <stdio.h>
 
 #endif /* threading_hpp */

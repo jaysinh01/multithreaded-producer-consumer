@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		69C5569A23FE133800EBCA71 /* threading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C5569823FE133800EBCA71 /* threading.cpp */; };
-		69C5569D23FEE61300EBCA71 /* input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C5569B23FEE61300EBCA71 /* input.cpp */; };
-		69C556A22400A66E00EBCA71 /* TSleep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C556A02400A66E00EBCA71 /* TSleep.cpp */; };
+		69C556AB2400A7C400EBCA71 /* input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C556A42400A7C400EBCA71 /* input.cpp */; };
+		69C556AC2400A7C400EBCA71 /* threading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C556A72400A7C400EBCA71 /* threading.cpp */; };
+		69C556AE2400A7C400EBCA71 /* TandS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C556A92400A7C400EBCA71 /* TandS.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,12 +26,11 @@
 
 /* Begin PBXFileReference section */
 		69C5568D23FE12A800EBCA71 /* multithreaded-producer-consumer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "multithreaded-producer-consumer"; sourceTree = BUILT_PRODUCTS_DIR; };
-		69C5569823FE133800EBCA71 /* threading.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = threading.cpp; path = ../../../Documents/threading.cpp; sourceTree = "<group>"; };
-		69C5569923FE133800EBCA71 /* threading.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = threading.hpp; path = ../../../Documents/threading.hpp; sourceTree = "<group>"; };
-		69C5569B23FEE61300EBCA71 /* input.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = input.cpp; path = ../../../Documents/input.cpp; sourceTree = "<group>"; };
-		69C5569C23FEE61300EBCA71 /* input.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = input.hpp; path = ../../../Documents/input.hpp; sourceTree = "<group>"; };
-		69C556A02400A66E00EBCA71 /* TSleep.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TSleep.cpp; path = ../../../Documents/TSleep.cpp; sourceTree = "<group>"; };
-		69C556A12400A66E00EBCA71 /* TSleep.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = TSleep.hpp; path = ../../../Documents/TSleep.hpp; sourceTree = "<group>"; };
+		69C556A42400A7C400EBCA71 /* input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = input.cpp; sourceTree = SOURCE_ROOT; };
+		69C556A52400A7C400EBCA71 /* input.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = input.hpp; sourceTree = SOURCE_ROOT; };
+		69C556A72400A7C400EBCA71 /* threading.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = threading.cpp; sourceTree = SOURCE_ROOT; };
+		69C556A92400A7C400EBCA71 /* TandS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TandS.cpp; sourceTree = SOURCE_ROOT; };
+		69C556AA2400A7C400EBCA71 /* threading.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = threading.hpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +63,11 @@
 		69C5568F23FE12A800EBCA71 /* multithreaded-producer-consumer */ = {
 			isa = PBXGroup;
 			children = (
-				69C5569823FE133800EBCA71 /* threading.cpp */,
-				69C5569923FE133800EBCA71 /* threading.hpp */,
-				69C5569B23FEE61300EBCA71 /* input.cpp */,
-				69C5569C23FEE61300EBCA71 /* input.hpp */,
-				69C556A02400A66E00EBCA71 /* TSleep.cpp */,
-				69C556A12400A66E00EBCA71 /* TSleep.hpp */,
+				69C556A42400A7C400EBCA71 /* input.cpp */,
+				69C556A52400A7C400EBCA71 /* input.hpp */,
+				69C556A92400A7C400EBCA71 /* TandS.cpp */,
+				69C556A72400A7C400EBCA71 /* threading.cpp */,
+				69C556AA2400A7C400EBCA71 /* threading.hpp */,
 			);
 			path = "multithreaded-producer-consumer";
 			sourceTree = "<group>";
@@ -130,9 +128,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69C556A22400A66E00EBCA71 /* TSleep.cpp in Sources */,
-				69C5569D23FEE61300EBCA71 /* input.cpp in Sources */,
-				69C5569A23FE133800EBCA71 /* threading.cpp in Sources */,
+				69C556AE2400A7C400EBCA71 /* TandS.cpp in Sources */,
+				69C556AC2400A7C400EBCA71 /* threading.cpp in Sources */,
+				69C556AB2400A7C400EBCA71 /* input.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
