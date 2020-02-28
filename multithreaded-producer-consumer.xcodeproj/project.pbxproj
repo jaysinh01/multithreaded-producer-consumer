@@ -10,6 +10,7 @@
 		69C556AB2400A7C400EBCA71 /* input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C556A42400A7C400EBCA71 /* input.cpp */; };
 		69C556AC2400A7C400EBCA71 /* threading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C556A72400A7C400EBCA71 /* threading.cpp */; };
 		69C556AE2400A7C400EBCA71 /* TandS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C556A92400A7C400EBCA71 /* TandS.cpp */; };
+		69C556B1240471EE00EBCA71 /* testAndRun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69C556AF240471EE00EBCA71 /* testAndRun.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		69C556A72400A7C400EBCA71 /* threading.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = threading.cpp; sourceTree = SOURCE_ROOT; };
 		69C556A92400A7C400EBCA71 /* TandS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TandS.cpp; sourceTree = SOURCE_ROOT; };
 		69C556AA2400A7C400EBCA71 /* threading.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = threading.hpp; sourceTree = SOURCE_ROOT; };
+		69C556AF240471EE00EBCA71 /* testAndRun.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testAndRun.cpp; sourceTree = SOURCE_ROOT; };
+		69C556B0240471EE00EBCA71 /* testAndRun.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = testAndRun.hpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				69C556A92400A7C400EBCA71 /* TandS.cpp */,
 				69C556A72400A7C400EBCA71 /* threading.cpp */,
 				69C556AA2400A7C400EBCA71 /* threading.hpp */,
+				69C556AF240471EE00EBCA71 /* testAndRun.cpp */,
+				69C556B0240471EE00EBCA71 /* testAndRun.hpp */,
 			);
 			path = "multithreaded-producer-consumer";
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				69C556AE2400A7C400EBCA71 /* TandS.cpp in Sources */,
 				69C556AC2400A7C400EBCA71 /* threading.cpp in Sources */,
 				69C556AB2400A7C400EBCA71 /* input.cpp in Sources */,
+				69C556B1240471EE00EBCA71 /* testAndRun.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

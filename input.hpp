@@ -10,7 +10,6 @@
 
 //#include <stdio.h>
 #include "threading.hpp"
-
 #include <sys/times.h> // for timing functions
 #include <thread>
 #include <iostream>

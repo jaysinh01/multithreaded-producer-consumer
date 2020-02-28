@@ -6,8 +6,9 @@
 //
 
 #include "input.hpp"
-#include "TandS.cpp"
-
+#include <cstring>
+//#include "TandS.cpp"
+/*
 std::queue<std::pair<char, int>> input;
 bool exitFlag = false;
 sem_t* emptyCount;
@@ -81,7 +82,7 @@ void producerExecute(){
         std::pair <char,int> toBeInstered (orTS, inputParameterTS);
         if (orTS == 'S'){
             printLogs(0, "Sleep", inputParameterTS);
-            Sleep(inputParameterTS);
+//            Sleep(inputParameterTS);
         }else if (orTS == 'T'){
             printLogs(0, "Work", inputParameterTS);
             input.push(toBeInstered);
@@ -109,7 +110,7 @@ void consumerExecute(int id){
             std::pair <char,int> executeInput =  input.front();
             input.pop();
             printLogs(id, "Recieve", executeInput.second);
-            Trans(executeInput.second); //execute T
+//            Trans(executeInput.second); //execute T
             printLogs(id, "Complete", executeInput.second);
             queue_lock.unlock();
             sem_post(emptyCount);
@@ -118,16 +119,18 @@ void consumerExecute(int id){
 }
 
 
-int main(int argc, char** argv){
-    printHeader();
-    if (strcmp(argv[1], "<")){
+int main(int argc, char* argv[]){
+    //printHeader();
+    printf("hello");
+    if (strcmp(argv[3], "<") == 0){
         input_information.isInputFromFile = true;
-        input_information.fileName = argv[2];
+//        input_information.fileName = argv[4];
     }else{
         input_information.isInputFromFile = false;
     }
-    int numConsumers = std::stoi(argv[2]);
+    int numConsumers = std::stoi(argv[1]);
     //queue watching semaphores
+    printf("im here 132");
     emptyCount = sem_open("/empty", O_CREAT | O_EXCL, 0644, 2*numConsumers); // returns -1 (=FAILED) on OS X
     fullCount = sem_open("/empty", O_CREAT | O_EXCL, 0644, 0); // here it should not be 0
     std::thread producerThread(producerExecute);
@@ -149,3 +152,4 @@ int main(int argc, char** argv){
     //closing and terminating the locks
     return 0;
 }
+*/
