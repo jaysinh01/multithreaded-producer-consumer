@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
             endingLineNumber = "160"
-            landmarkName = "main(argc, argv)"
+            landmarkName = "consumerExecute(ID_args)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
