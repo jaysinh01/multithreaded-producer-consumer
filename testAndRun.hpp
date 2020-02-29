@@ -21,5 +21,20 @@
 #include <string> // std::stoi
 #include <stdio.h> // for file reading and writing
 #include <fstream> // for file reading and writing
+//#include "printing.hpp"
+
+std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
+std::queue<int> *input = new std::queue<int>;
+bool exitFlag = false;
+sem_t* emptyCount = new sem_t;
+sem_t* fullCount = new sem_t;
+sem_t* queue_lock = new sem_t;
+sem_t* printLock = new sem_t;
+bool  * emptyQueue = new bool(false);
+
+void *consumerExecute(void * ID_args);
+
+
+void *producerExecute(void *);
 
 #endif /* testAndRun_hpp */

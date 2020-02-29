@@ -28,114 +28,13 @@
 #include <cstring>
 #include <chrono>
 #include <iomanip>
+#include <vector>
 #include "TandS.cpp"
+#include "printing.hpp"
 
-std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
-std::queue<int> *input = new std::queue<int>;
-bool exitFlag = false;
-sem_t* emptyCount = new sem_t;
-sem_t* fullCount = new sem_t;
-sem_t* queue_lock = new sem_t;
-sem_t* printLock = new sem_t;
-bool  * emptyQueue = new bool(false);
 
-//std::mutex producer_lock; // might not need this
 
-struct summaryStruct{
-    int workCount;
-    int askCount;
-    int receiveCount;
-    int completeCount;
-    int sleepCount;
-    std::chrono::duration<double> totalTime;
-    std::vector<int> *threadWorkCount = new std::vector<int>;
-};
-
-struct summaryStruct summary;
-
-void printFooter(){
-    //print logs header
-    std::cout << "Summary:" << std::endl;
-    std::cout << "   Work     " << summary.workCount << std::endl;
-    std::cout << "   Ask      " << summary.askCount << std::endl;
-    std::cout << "   Recieve  " << summary.receiveCount << std::endl;
-    std::cout << "   Complete " << summary.completeCount << std::endl;
-    std::cout << "   Sleep    " << summary.sleepCount << std::endl;
-    int threadNum = 1;
-    for (auto threadWork: *summary.threadWorkCount){
-        std::cout << "   Thread #" << threadNum << " ";
-        std::cout << threadWork << std::endl;
-        threadNum++;
-    }
-    std::cout << "Transactions per second: " << summary.threadWorkCount->size()/summary.totalTime.count() << std::endl;
     
-}
-
-void updateAsk(){
-    summary.askCount++;
-}
-
-void updateReceive(){
-    summary.receiveCount++;
-}
-
-void updateComplete(){
-    summary.completeCount++;
-}
-
-void updateSleep(){
-    summary.sleepCount++;
-}
-
-void updateTotalTime(std::chrono::duration<double> updateTime){
-    summary.totalTime += updateTime;
-}
-
-void updateWork(){
-    summary.workCount++;
-}
-
-void updateWorkCount(int ID){
-    int oldWork = summary.threadWorkCount->at(ID-1);
-    int newWork = oldWork + 1;
-    summary.threadWorkCount->at(ID-1) = newWork;
-}
-
-void fillWorkCount(int num){
-    for (int i = 0; i < num; i++){
-        summary.threadWorkCount->push_back(0);
-    }
-}
-
-void printLogs(int id, std::string state, int work){
-    //timing shit here
-    //https://stackoverflow.com/questions/1083142/what-s-the-correct-way-to-use-printf-to-print-a-clock-t
-    //print the best way
-    //-1 for work is not to print
-    
-    auto t2 = std::chrono::high_resolution_clock::now();
-    //printf("%lu\n", total_t);
-    //std::cout << total_t << std::endl;
-    std::chrono::duration<double> elapsed = t2 - start_time;
-    updateTotalTime(elapsed);
-    std::cout << std::fixed << std::setprecision(3) << elapsed.count();
-    std::cout << "    ID= " << id << " ";
-    if (state == "Work" or state == "Recieve"){
-        //int *sval;
-        //sem_getvalue(fullCount, sval);
-        std::cout << "Q = " << input->size() << "  ";
-    }else{
-        std::cout << "       ";
-    }
-    
-    if (work != -1){
-        std::cout << state << "      " << work << std::endl;
-    }else{
-        std::cout << state << std::endl;
-    }
-    //std::cout.rdbuf(coutbuf); //https://stackoverflow.com/a/10151286
-    
-}
 
 void *producerExecute(void *){
     //read from the file or stdin as specified
@@ -149,7 +48,7 @@ void *producerExecute(void *){
         if (std::cin.eof()){
             exitFlag = true;
             sem_wait(printLock);
-            printLogs(0, "End", -1);
+            printLogs(0, "End     ", -1);
             sem_post(printLock);
             break;
         }
@@ -161,7 +60,7 @@ void *producerExecute(void *){
         int inputParameterTS = readInput[1] - '0';  // convert string element to int
         if (orTS == 'S'){
             sem_wait(printLock);
-            printLogs(0, "Sleep", inputParameterTS);
+            printLogs(0, "Sleep   ", inputParameterTS);
             updateSleep();
             sem_post(printLock);
             Sleep(inputParameterTS);
@@ -169,7 +68,7 @@ void *producerExecute(void *){
             sem_wait(emptyCount);
             sem_wait(queue_lock);
             sem_wait(printLock);
-            printLogs(0, "Work", inputParameterTS);
+            printLogs(0, "Work    ", inputParameterTS);
             updateWork();
             sem_post(printLock);
             input->push(inputParameterTS);
@@ -190,7 +89,7 @@ void *consumerExecute(void * ID_args){
     int * ID = (int *) ID_args;
     while (!(exitFlag && input->size() == 0)){
         sem_wait(printLock);
-        printLogs(*ID, "Ask", -1);
+        printLogs(*ID, "Ask     ", -1);
         updateAsk();
         sem_post(printLock);
         sem_wait(fullCount);
@@ -206,7 +105,7 @@ void *consumerExecute(void * ID_args){
             input->pop();
             updateWorkCount(*ID);
             sem_wait(printLock);
-            printLogs(*ID, "Recieve", 10);
+            printLogs(*ID, "Recieve ", 10);
             updateReceive();
             sem_post(printLock);
             Trans(inputT);
@@ -239,11 +138,11 @@ int main(int argc, char* argv[]){
     const char * c = outputFile.c_str();
     freopen(c,"w",stdout);
     fillWorkCount(number_consumer);
-    std::cout << "consumers" << number_consumer << std::endl;
-//    std::cout << "I am here" << std::endl;
-    //std::vector<pthread_t> ThreadVector;
+
     pthread_t ThreadVector[number_consumer];
     int IDarray[number_consumer];
+    
+    //initialize the semaphores
     sem_init(printLock, 0, 1);
     sem_init(fullCount, 0, 0);
     sem_init(emptyCount, 0, 5);
@@ -265,9 +164,7 @@ int main(int argc, char* argv[]){
     
     sem_post(fullCount);
     for (auto consumer_thread : ThreadVector){
-       std::cout << "waiting" << std::endl;
         pthread_join(consumer_thread, NULL);
-        std::cout << std::endl << "done" << std::endl;
     }
     printFooter();
     fclose(stdout);
